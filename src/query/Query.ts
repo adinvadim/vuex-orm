@@ -926,10 +926,10 @@ export default class Query<T extends Model = Model> {
    * Commit `update` to the state.
    */
   commitUpdate (instances: Data.Instances): Data.Collection {
-    instances = this.updateIndexes(instances)
+    // instances = this.updateIndexes(instances)
 
     this.commit('update', instances, () => {
-      this.state.data = { ...this.state.data, ...instances }
+      this.state.data = this.updateIndexes({ ...this.state.data, ...instances })
     })
 
     return this.map(instances)
