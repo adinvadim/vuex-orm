@@ -585,6 +585,8 @@ describe('Feature – Basics – Update', () => {
 
     expect(user.$id).toBe('2')
     expect(user.id).toBe(2)
+
+    expect(User.find(1)).toBeNull()
   })
 
   it('returns a updated object', async () => {
